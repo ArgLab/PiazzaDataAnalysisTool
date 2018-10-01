@@ -1,0 +1,9 @@
+#!/usr/bin/env mongo
+// ClearDB.mongo
+// @author: Collin Lynch
+// @date: 12/08/2014
+//
+// Clears the DM_ModSocDB data.  
+
+db = new Mongo().getDB("DM_ModSocDB");
+db.dropDatabase();

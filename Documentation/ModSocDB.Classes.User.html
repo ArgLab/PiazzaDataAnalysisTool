@@ -1,0 +1,458 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ModSocDB.Classes.User</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="ModSocDB.html"><font color="#ffffff">ModSocDB</font></a>.<a href="ModSocDB.Classes.html"><font color="#ffffff">Classes</font></a>.User</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/Classes/User.py">/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/Classes/User.py</a></font></td></tr></table>
+    <p><tt><a href="#User">User</a>.py<br>
+:Author:&nbsp;Collin&nbsp;Lynch<br>
+:Date:&nbsp;01/14/2015<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;provides&nbsp;for&nbsp;a&nbsp;central&nbsp;system&nbsp;user&nbsp;instance.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ModSocDB.html">ModSocDB</a><br>
+<a href="ModSocDB.Utils.html">ModSocDB.Utils</a><br>
+</td><td width="25%" valign=top><a href="csv.html">csv</a><br>
+<a href="name_tools.html">name_tools</a><br>
+</td><td width="25%" valign=top><a href="ming.schema.html">ming.schema</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ModSocDB.Classes.User.html#User">User</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="User">class <strong>User</strong></a>(<a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;<a href="#User">User</a>&nbsp;class&nbsp;provides&nbsp;a&nbsp;central&nbsp;identifier&nbsp;for&nbsp;a&nbsp;user.&nbsp;&nbsp;It&nbsp;is<br>
+based&nbsp;on&nbsp;the&nbsp;PiazzaUser&nbsp;instance&nbsp;primarily&nbsp;and&nbsp;includes&nbsp;some&nbsp;of<br>
+the&nbsp;same&nbsp;content&nbsp;including&nbsp;the&nbsp;anonymous&nbsp;ID.&nbsp;&nbsp;It&nbsp;will&nbsp;ultimately<br>
+be&nbsp;a&nbsp;vehicle&nbsp;for&nbsp;adding&nbsp;in&nbsp;other&nbsp;methods&nbsp;to&nbsp;calculate&nbsp;per-user<br>
+statistics.&nbsp;&nbsp;<br>
+&nbsp;<br>
+Collection:&nbsp;users<br>
+&nbsp;<br>
+Relations:<br>
+*&nbsp;PiazzaUser:&nbsp;Link&nbsp;to&nbsp;the&nbsp;associated&nbsp;Piazza&nbsp;<a href="#User">User</a>.<br>
+*&nbsp;Dataset:&nbsp;Link&nbsp;to&nbsp;the&nbsp;associated&nbsp;Dataset.<br>
+&nbsp;<br>
+Fields:<br>
+*&nbsp;_id:&nbsp;Unique&nbsp;Mongodb&nbsp;ID.<br>
+*&nbsp;PiazzaUser_ID:&nbsp;Mongo&nbsp;ID&nbsp;of&nbsp;the&nbsp;Piazza&nbsp;<a href="#User">User</a>.<br>
+*&nbsp;Dataset_ID:&nbsp;ID&nbsp;of&nbsp;the&nbsp;associated&nbsp;Dataset.<br>
+*&nbsp;local_user_id:&nbsp;Local&nbsp;anonymously&nbsp;assigned&nbsp;user&nbsp;ID&nbsp;info.<br>
+*&nbsp;PiazzaID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Piazza&nbsp;ID&nbsp;for&nbsp;user.<br>
+*&nbsp;StudentNumber:&nbsp;Student&nbsp;ID&nbsp;number.&nbsp;<br>
+*&nbsp;name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Full&nbsp;student&nbsp;name.<br>
+*&nbsp;first_name:&nbsp;&nbsp;&nbsp;&nbsp;Split&nbsp;first&nbsp;name.<br>
+*&nbsp;middle_name:&nbsp;&nbsp;&nbsp;Split&nbsp;middle&nbsp;name.<br>
+*&nbsp;last_name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Split&nbsp;last&nbsp;name.<br>
+*&nbsp;email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student's&nbsp;email&nbsp;address.<br>
+*&nbsp;piazza_alt_email:&nbsp;Alternate&nbsp;email&nbsp;address.<br>
+*&nbsp;username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system&nbsp;username.<br>
+*&nbsp;Instructor:&nbsp;&nbsp;&nbsp;&nbsp;instructor&nbsp;name.<br>
+*&nbsp;SectionNumber:&nbsp;integer&nbsp;section&nbsp;number.&nbsp;<br>
+*&nbsp;role:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role&nbsp;in&nbsp;the&nbsp;course&nbsp;-&nbsp;Student,&nbsp;Instructor,&nbsp;or&nbsp;TA<br>
+*&nbsp;postCount:&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;for&nbsp;number&nbsp;of&nbsp;piazza&nbsp;posts.<br>
+*&nbsp;PiazzaDays:&nbsp;&nbsp;&nbsp;Days&nbsp;active&nbsp;or&nbsp;logged&nbsp;in.<br>
+*&nbsp;PiazzaViews:&nbsp;&nbsp;Count&nbsp;of&nbsp;views&nbsp;made.<br>
+*&nbsp;PiazzaAsks:&nbsp;&nbsp;&nbsp;Count&nbsp;of&nbsp;asks&nbsp;made.<br>
+*&nbsp;PiazzaAnswers:&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;of&nbsp;answers&nbsp;given&nbsp;to&nbsp;question.<br>
+*&nbsp;FinalGrade:&nbsp;&nbsp;&nbsp;Final&nbsp;grade&nbsp;of&nbsp;the&nbsp;student.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="ModSocDB.Classes.User.html#User">User</a></dd>
+<dd><a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<strong>__init__</strong> = &lt;ming.odm.mapper._InitDecorator object&gt;
+<dl><dt><a name="User-anonymizeNameFields"><strong>anonymizeNameFields</strong></a>(self)</dt><dd><tt>This&nbsp;code&nbsp;resets&nbsp;all&nbsp;of&nbsp;the&nbsp;local&nbsp;name&nbsp;fields&nbsp;to&nbsp;contain<br>
+an&nbsp;anonymous&nbsp;form&nbsp;based&nbsp;upon&nbsp;the&nbsp;salted&nbsp;user&nbsp;ID.&nbsp;&nbsp;This<br>
+will&nbsp;simply&nbsp;set&nbsp;the&nbsp;specific&nbsp;name&nbsp;fields&nbsp;for&nbsp;the&nbsp;user&nbsp;to<br>
+the&nbsp;IDs&nbsp;and&nbsp;will&nbsp;purge&nbsp;the&nbsp;group&nbsp;name&nbsp;field.<br>
+&nbsp;<br>
+For&nbsp;the&nbsp;sake&nbsp;of&nbsp;clarity&nbsp;this&nbsp;will&nbsp;only&nbsp;anonymize&nbsp;cases&nbsp;where<br>
+the&nbsp;field&nbsp;is&nbsp;nonempty.&nbsp;&nbsp;In&nbsp;cases&nbsp;where&nbsp;it&nbsp;is&nbsp;none&nbsp;then&nbsp;it&nbsp;<br>
+will&nbsp;simply&nbsp;be&nbsp;left&nbsp;as&nbsp;is.</tt></dd></dl>
+
+<dl><dt><a name="User-anonymizeNamesInText"><strong>anonymizeNamesInText</strong></a>(self, TextStr)</dt><dd><tt>Performs&nbsp;a&nbsp;replacement&nbsp;of&nbsp;the&nbsp;names&nbsp;in&nbsp;the&nbsp;text&nbsp;with&nbsp;the&nbsp;anonymized&nbsp;form<br>
+of&nbsp;the&nbsp;names&nbsp;as&nbsp;generated&nbsp;by&nbsp;the&nbsp;makeAnon&nbsp;methods&nbsp;above.<br>
+&nbsp;<br>
+NOTE::&nbsp;This&nbsp;is&nbsp;not&nbsp;a&nbsp;destructive&nbsp;replacement&nbsp;and&nbsp;only<br>
+&nbsp;&nbsp;returns&nbsp;an&nbsp;updated&nbsp;form.&nbsp;&nbsp;Or&nbsp;None&nbsp;if&nbsp;no&nbsp;changes&nbsp;are<br>
+&nbsp;&nbsp;made.<br>
+&nbsp;<br>
+NOTE::&nbsp;If&nbsp;the&nbsp;name&nbsp;is&nbsp;none&nbsp;then&nbsp;this&nbsp;will&nbsp;do&nbsp;nothing.</tt></dd></dl>
+
+<dl><dt><a name="User-getEmail"><strong>getEmail</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;email.</tt></dd></dl>
+
+<dl><dt><a name="User-getFirstName"><strong>getFirstName</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;first_name&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="User-getLastName"><strong>getLastName</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;last_name&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="User-getLocalUserID"><strong>getLocalUserID</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;local&nbsp;user&nbsp;Id&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="User-getMiddleName"><strong>getMiddleName</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;middle_name&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="User-getName"><strong>getName</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;user&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="User-getPostCount"><strong>getPostCount</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;role.</tt></dd></dl>
+
+<dl><dt><a name="User-getRole"><strong>getRole</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;role.</tt></dd></dl>
+
+<dl><dt><a name="User-getUserDataDict"><strong>getUserDataDict</strong></a>(self)</dt><dd><tt>Make&nbsp;the&nbsp;user&nbsp;data&nbsp;dictionary.</tt></dd></dl>
+
+<dl><dt><a name="User-getUsername"><strong>getUsername</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;username.</tt></dd></dl>
+
+<dl><dt><a name="User-makeEmailAnonForm"><strong>makeEmailAnonForm</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;stock&nbsp;method&nbsp;that&nbsp;returns&nbsp;the&nbsp;anon&nbsp;form&nbsp;of<br>
+the&nbsp;email&nbsp;for&nbsp;later&nbsp;use.</tt></dd></dl>
+
+<dl><dt><a name="User-makeFirstNameAnonForm"><strong>makeFirstNameAnonForm</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;stock&nbsp;method&nbsp;that&nbsp;returns&nbsp;the&nbsp;anon&nbsp;form&nbsp;of<br>
+the&nbsp;first&nbsp;name&nbsp;for&nbsp;later&nbsp;use.</tt></dd></dl>
+
+<dl><dt><a name="User-makeLastNameAnonForm"><strong>makeLastNameAnonForm</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;stock&nbsp;method&nbsp;that&nbsp;returns&nbsp;the&nbsp;anon&nbsp;form&nbsp;of<br>
+the&nbsp;last&nbsp;name&nbsp;for&nbsp;later&nbsp;use.</tt></dd></dl>
+
+<dl><dt><a name="User-makeMiddleNameAnonForm"><strong>makeMiddleNameAnonForm</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;stock&nbsp;method&nbsp;that&nbsp;returns&nbsp;the&nbsp;anon&nbsp;form&nbsp;of<br>
+the&nbsp;middle&nbsp;name&nbsp;for&nbsp;later&nbsp;use.</tt></dd></dl>
+
+<dl><dt><a name="User-makeNameAnonForm"><strong>makeNameAnonForm</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;stock&nbsp;method&nbsp;that&nbsp;returns&nbsp;the&nbsp;anon&nbsp;form&nbsp;of<br>
+the&nbsp;name&nbsp;for&nbsp;later&nbsp;use.</tt></dd></dl>
+
+<dl><dt><a name="User-makeUsernameAnonForm"><strong>makeUsernameAnonForm</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;stock&nbsp;method&nbsp;that&nbsp;returns&nbsp;the&nbsp;anon&nbsp;form&nbsp;of<br>
+the&nbsp;username&nbsp;for&nbsp;later&nbsp;use.</tt></dd></dl>
+
+<dl><dt><a name="User-nameInTextP"><strong>nameInTextP</strong></a>(self, TextStr)</dt><dd><tt>Given&nbsp;a&nbsp;text&nbsp;string&nbsp;check&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;user's&nbsp;first&nbsp;name,<br>
+last&nbsp;name,&nbsp;or&nbsp;full&nbsp;name&nbsp;appear&nbsp;in&nbsp;it.&nbsp;&nbsp;This&nbsp;depends&nbsp;upon<br>
+the&nbsp;nltk&nbsp;library.&nbsp;&nbsp;If&nbsp;the&nbsp;Name&nbsp;is&nbsp;None&nbsp;then&nbsp;this&nbsp;will&nbsp;return<br>
+False.</tt></dd></dl>
+
+<strong>query</strong> = &lt;ming.odm.mapper._ClassQuery object&gt;
+<dl><dt><a name="User-replaceNameInText"><strong>replaceNameInText</strong></a>(self, FirstNameReplacement, LastNameReplacement, TextStr)</dt><dd><tt>Given&nbsp;a&nbsp;text&nbsp;string&nbsp;replace&nbsp;the&nbsp;user's&nbsp;name&nbsp;in&nbsp;it&nbsp;if<br>
+it&nbsp;is&nbsp;present&nbsp;using&nbsp;the&nbsp;supplied&nbsp;first&nbsp;and&nbsp;last<br>
+replacement&nbsp;strings.<br>
+&nbsp;<br>
+NOTE::&nbsp;This&nbsp;is&nbsp;not&nbsp;a&nbsp;destructive&nbsp;replacement&nbsp;and&nbsp;only<br>
+&nbsp;&nbsp;returns&nbsp;an&nbsp;updated&nbsp;form.&nbsp;&nbsp;Or&nbsp;None&nbsp;if&nbsp;no&nbsp;changes&nbsp;are<br>
+&nbsp;&nbsp;made.<br>
+&nbsp;<br>
+NOTE::&nbsp;If&nbsp;the&nbsp;FirstName&nbsp;and&nbsp;LastName&nbsp;are&nbsp;none&nbsp;then&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;will&nbsp;do&nbsp;nothing.</tt></dd></dl>
+
+<dl><dt><a name="User-setEmail"><strong>setEmail</strong></a>(self, NewEmail)</dt><dd><tt>Set&nbsp;the&nbsp;new&nbsp;email.</tt></dd></dl>
+
+<dl><dt><a name="User-setFirstName"><strong>setFirstName</strong></a>(self, NewName)</dt><dd><tt>Set&nbsp;the&nbsp;first_name&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="User-setLastName"><strong>setLastName</strong></a>(self, NewName)</dt><dd><tt>Set&nbsp;the&nbsp;last_name&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="User-setLocalUserID"><strong>setLocalUserID</strong></a>(self, NewID)</dt><dd><tt>Set&nbsp;the&nbsp;local&nbsp;user&nbsp;ID&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="User-setMiddleName"><strong>setMiddleName</strong></a>(self, NewName)</dt><dd><tt>Set&nbsp;the&nbsp;middle_name&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="User-setName"><strong>setName</strong></a>(self, NewName)</dt><dd><tt>Set&nbsp;the&nbsp;new&nbsp;user&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="User-setPostCount"><strong>setPostCount</strong></a>(self, NewCount)</dt><dd><tt>Set&nbsp;the&nbsp;new&nbsp;role.</tt></dd></dl>
+
+<dl><dt><a name="User-setRole"><strong>setRole</strong></a>(self, NewRole)</dt><dd><tt>Set&nbsp;the&nbsp;new&nbsp;role.</tt></dd></dl>
+
+<dl><dt><a name="User-setUsername"><strong>setUsername</strong></a>(self, NewUsername)</dt><dd><tt>Set&nbsp;the&nbsp;new&nbsp;username.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="User-makeNewUser"><strong>makeNewUser</strong></a>(DatasetID, Name, PiazzaUserID<font color="#909090">=None</font>, PiazzaId<font color="#909090">=None</font>, WebAssignUserID<font color="#909090">=None</font>, MoodleActionID<font color="#909090">=None</font>, Studentnumber<font color="#909090">=None</font>, Email<font color="#909090">=None</font>, Alt_Email<font color="#909090">=None</font>, FirstName<font color="#909090">=None</font>, MiddleName<font color="#909090">=None</font>, LastName<font color="#909090">=None</font>, Username<font color="#909090">=None</font>, Instructor<font color="#909090">=None</font>, SectionNumber<font color="#909090">=None</font>, isPeerTutor<font color="#909090">=None</font>, Role<font color="#909090">=None</font>, FlushSession<font color="#909090">=True</font>)</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;user.&nbsp;&nbsp;This&nbsp;will&nbsp;set&nbsp;the&nbsp;email<br>
+and&nbsp;name&nbsp;fields&nbsp;directly&nbsp;from&nbsp;the&nbsp;argument&nbsp;and<br>
+will&nbsp;then&nbsp;return&nbsp;the&nbsp;user&nbsp;instance.&nbsp;&nbsp;The<br>
+*_name&nbsp;fields&nbsp;will&nbsp;be&nbsp;set&nbsp;via&nbsp;the&nbsp;split&nbsp;name<br>
+function&nbsp;and&nbsp;the&nbsp;local_user_id&nbsp;field&nbsp;will&nbsp;be<br>
+set&nbsp;based&nbsp;upon&nbsp;the&nbsp;current&nbsp;number&nbsp;of&nbsp;users.<br>
+This&nbsp;is&nbsp;not&nbsp;reset&nbsp;safe.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>Dataset</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>Dataset_ID</strong></dt>
+<dd><tt>Declares&nbsp;a&nbsp;field&nbsp;to&nbsp;store&nbsp;one&nbsp;or&nbsp;more&nbsp;ObjectIds&nbsp;of&nbsp;a&nbsp;related&nbsp;objects.<br>
+&nbsp;<br>
+The&nbsp;``related``&nbsp;argument&nbsp;must&nbsp;be&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;or&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;(to&nbsp;avoid&nbsp;circular&nbsp;dependencies).&nbsp;The<br>
+field&nbsp;itself&nbsp;will&nbsp;actually&nbsp;store&nbsp;and&nbsp;retrieve&nbsp;:class:`bson.ObjectId`&nbsp;instances.<br>
+&nbsp;<br>
+``uselist``&nbsp;argument&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;whenever&nbsp;the&nbsp;object&nbsp;can&nbsp;relate<br>
+to&nbsp;more&nbsp;than&nbsp;one&nbsp;remote&nbsp;object&nbsp;(many-to-many)&nbsp;and&nbsp;so&nbsp;the&nbsp;ids&nbsp;are&nbsp;stored&nbsp;in<br>
+a&nbsp;MongoDB&nbsp;Array.<br>
+&nbsp;<br>
+Usually&nbsp;a&nbsp;ForeignIdProperty&nbsp;with&nbsp;value&nbsp;``None``&nbsp;means&nbsp;that&nbsp;the&nbsp;object&nbsp;is&nbsp;not<br>
+related&nbsp;to&nbsp;any&nbsp;other&nbsp;entity,&nbsp;in&nbsp;case&nbsp;you&nbsp;have&nbsp;entities&nbsp;that&nbsp;might&nbsp;have&nbsp;``None``<br>
+as&nbsp;their&nbsp;ids&nbsp;you&nbsp;can&nbsp;use&nbsp;``allow_none``&nbsp;option&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;that&nbsp;``None``&nbsp;is<br>
+a&nbsp;valid&nbsp;foreign&nbsp;id.</tt></dd>
+</dl>
+<dl><dt><strong>FinalGrade</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>Instructor</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaAnswers</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaAsks</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaDays</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaID</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaUser</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaUser_ID</strong></dt>
+<dd><tt>Declares&nbsp;a&nbsp;field&nbsp;to&nbsp;store&nbsp;one&nbsp;or&nbsp;more&nbsp;ObjectIds&nbsp;of&nbsp;a&nbsp;related&nbsp;objects.<br>
+&nbsp;<br>
+The&nbsp;``related``&nbsp;argument&nbsp;must&nbsp;be&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;or&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;(to&nbsp;avoid&nbsp;circular&nbsp;dependencies).&nbsp;The<br>
+field&nbsp;itself&nbsp;will&nbsp;actually&nbsp;store&nbsp;and&nbsp;retrieve&nbsp;:class:`bson.ObjectId`&nbsp;instances.<br>
+&nbsp;<br>
+``uselist``&nbsp;argument&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;whenever&nbsp;the&nbsp;object&nbsp;can&nbsp;relate<br>
+to&nbsp;more&nbsp;than&nbsp;one&nbsp;remote&nbsp;object&nbsp;(many-to-many)&nbsp;and&nbsp;so&nbsp;the&nbsp;ids&nbsp;are&nbsp;stored&nbsp;in<br>
+a&nbsp;MongoDB&nbsp;Array.<br>
+&nbsp;<br>
+Usually&nbsp;a&nbsp;ForeignIdProperty&nbsp;with&nbsp;value&nbsp;``None``&nbsp;means&nbsp;that&nbsp;the&nbsp;object&nbsp;is&nbsp;not<br>
+related&nbsp;to&nbsp;any&nbsp;other&nbsp;entity,&nbsp;in&nbsp;case&nbsp;you&nbsp;have&nbsp;entities&nbsp;that&nbsp;might&nbsp;have&nbsp;``None``<br>
+as&nbsp;their&nbsp;ids&nbsp;you&nbsp;can&nbsp;use&nbsp;``allow_none``&nbsp;option&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;that&nbsp;``None``&nbsp;is<br>
+a&nbsp;valid&nbsp;foreign&nbsp;id.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaViews</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>SectionNumber</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>StudentNumber</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>email</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>first_name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>last_name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>local_user_id</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>middle_name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>piazza_alt_email</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>postCount</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>role</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>username</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mongometa__</strong> = &lt;class 'ModSocDB.Classes.User.__mongometa__&lt;User&gt;'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>:<br>
+<dl><dt><a name="User-__contains__"><strong>__contains__</strong></a>(self_, name)</dt></dl>
+
+<dl><dt><a name="User-__getitem__"><strong>__getitem__</strong></a>(self_, name)</dt></dl>
+
+<dl><dt><a name="User-__repr__"><strong>__repr__</strong></a>(self_)</dt></dl>
+
+<dl><dt><a name="User-__setitem__"><strong>__setitem__</strong></a>(self_, name, value)</dt></dl>
+
+<dl><dt><a name="User-delete"><strong>delete</strong></a>(self_)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-collectAllUserIDs"><strong>collectAllUserIDs</strong></a>(DatasetID<font color="#909090">=None</font>)</dt><dd><tt>Collect&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;PiazzaIDs&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+ <dl><dt><a name="-countAllUsers"><strong>countAllUsers</strong></a>()</dt><dd><tt>Simple&nbsp;query&nbsp;method&nbsp;to&nbsp;count&nbsp;all&nbsp;users&nbsp;in&nbsp;the&nbsp;DB.</tt></dd></dl>
+ <dl><dt><a name="-findAllUsers"><strong>findAllUsers</strong></a>(DatasetID<font color="#909090">=None</font>, Timeout<font color="#909090">=True</font>)</dt><dd><tt>Collect&nbsp;all&nbsp;users&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+ <dl><dt><a name="-findUserByEmail"><strong>findUserByEmail</strong></a>(Email)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;set&nbsp;email.</tt></dd></dl>
+ <dl><dt><a name="-findUserByFirstLast"><strong>findUserByFirstLast</strong></a>(FirstName, LastName)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;set&nbsp;name.</tt></dd></dl>
+ <dl><dt><a name="-findUserByName"><strong>findUserByName</strong></a>(UserName)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;set&nbsp;name.</tt></dd></dl>
+ <dl><dt><a name="-findUserByUsername"><strong>findUserByUsername</strong></a>(UserName)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;set&nbsp;name.</tt></dd></dl>
+ <dl><dt><a name="-findUserBy_ID"><strong>findUserBy_ID</strong></a>(UserID)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;set&nbsp;name.</tt></dd></dl>
+</td></tr></table>
+</body></html>

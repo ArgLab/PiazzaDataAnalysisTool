@@ -1,0 +1,168 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ModSocDB.Classes.Dataset</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="ModSocDB.html"><font color="#ffffff">ModSocDB</font></a>.<a href="ModSocDB.Classes.html"><font color="#ffffff">Classes</font></a>.Dataset</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/Classes/Dataset.py">/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/Classes/Dataset.py</a></font></td></tr></table>
+    <p><tt><a href="#Dataset">Dataset</a>.py<br>
+:Author:&nbsp;Collin&nbsp;Lynch<br>
+:Date:&nbsp;01/13/2015<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;defines&nbsp;the&nbsp;dataset&nbsp;class&nbsp;and&nbsp;associated&nbsp;query<br>
+methods.&nbsp;&nbsp;The&nbsp;dataset&nbsp;is&nbsp;used&nbsp;to&nbsp;segment&nbsp;classes&nbsp;or&nbsp;other<br>
+study&nbsp;sources&nbsp;as&nbsp;needed.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ModSocDB.html">ModSocDB</a><br>
+</td><td width="25%" valign=top><a href="ming.schema.html">ming.schema</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ModSocDB.Classes.Dataset.html#Dataset">Dataset</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Dataset">class <strong>Dataset</strong></a>(<a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;<a href="#Dataset">Dataset</a>&nbsp;class&nbsp;has&nbsp;a&nbsp;simple&nbsp;pair&nbsp;of&nbsp;fields&nbsp;and&nbsp;acts&nbsp;as<br>
+an&nbsp;index&nbsp;to&nbsp;more&nbsp;complex&nbsp;content.&nbsp;&nbsp;It&nbsp;should&nbsp;have&nbsp;a&nbsp;set&nbsp;of<br>
+relations&nbsp;to&nbsp;the&nbsp;underlying&nbsp;indexed&nbsp;content&nbsp;such&nbsp;as&nbsp;users<br>
+and&nbsp;content&nbsp;as&nbsp;they&nbsp;are&nbsp;needed.&nbsp;&nbsp;<br>
+&nbsp;<br>
+Collection:&nbsp;Datasets<br>
+&nbsp;<br>
+Relations:<br>
+*&nbsp;Users:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;users&nbsp;in&nbsp;this&nbsp;dataset.<br>
+*&nbsp;PiazzaUsers:&nbsp;A&nbsp;list&nbsp;of&nbsp;Piazza&nbsp;Users&nbsp;in&nbsp;this&nbsp;dataset.<br>
+*&nbsp;ExamGrades:&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;exam&nbsp;grades&nbsp;from&nbsp;this&nbsp;dataset.<br>
+&nbsp;<br>
+&nbsp;<br>
+Fields:<br>
+*&nbsp;_id:&nbsp;Unique&nbsp;&nbsp;Mongodb&nbsp;ID.<br>
+*&nbsp;ShortName:&nbsp;&nbsp;&nbsp;Mnemonic&nbsp;name.<br>
+*&nbsp;LongName:&nbsp;&nbsp;&nbsp;&nbsp;Full&nbsp;name.<br>
+*&nbsp;Description:&nbsp;Descriptive&nbsp;text.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="ModSocDB.Classes.Dataset.html#Dataset">Dataset</a></dd>
+<dd><a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<strong>__init__</strong> = &lt;ming.odm.mapper._InitDecorator object&gt;
+<dl><dt><a name="Dataset-getShortName"><strong>getShortName</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;short&nbsp;name&nbsp;of&nbsp;the&nbsp;dataset.</tt></dd></dl>
+
+<strong>query</strong> = &lt;ming.odm.mapper._ClassQuery object&gt;
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Dataset-loadDescriptionFile"><strong>loadDescriptionFile</strong></a>(DescFile)</dt><dd><tt>Load&nbsp;the&nbsp;supplied&nbsp;description&nbsp;file&nbsp;and&nbsp;return<br>
+a&nbsp;new&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#Dataset">Dataset</a>&nbsp;with&nbsp;it.<br>
+&nbsp;<br>
+Note,&nbsp;this&nbsp;does&nbsp;*not*&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;database<br>
+with&nbsp;a&nbsp;flush.&nbsp;&nbsp;That&nbsp;is&nbsp;up&nbsp;to&nbsp;the&nbsp;user.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>Description</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>LongName</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaUsers</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>ShortName</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>Users</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mongometa__</strong> = &lt;class 'ModSocDB.Classes.Dataset.__mongometa__&lt;Dataset&gt;'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>:<br>
+<dl><dt><a name="Dataset-__contains__"><strong>__contains__</strong></a>(self_, name)</dt></dl>
+
+<dl><dt><a name="Dataset-__getitem__"><strong>__getitem__</strong></a>(self_, name)</dt></dl>
+
+<dl><dt><a name="Dataset-__repr__"><strong>__repr__</strong></a>(self_)</dt></dl>
+
+<dl><dt><a name="Dataset-__setitem__"><strong>__setitem__</strong></a>(self_, name, value)</dt></dl>
+
+<dl><dt><a name="Dataset-delete"><strong>delete</strong></a>(self_)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-findAllDatasets"><strong>findAllDatasets</strong></a>(Timeout<font color="#909090">=True</font>)</dt><dd><tt>Collect&nbsp;all&nbsp;datasets&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+ <dl><dt><a name="-findDatasetByShortName"><strong>findDatasetByShortName</strong></a>(Name)</dt><dd><tt>Simple&nbsp;query&nbsp;method&nbsp;to&nbsp;load&nbsp;all&nbsp;skeletons&nbsp;in&nbsp;the&nbsp;DB.</tt></dd></dl>
+</td></tr></table>
+</body></html>

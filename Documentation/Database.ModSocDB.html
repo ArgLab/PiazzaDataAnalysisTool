@@ -1,0 +1,55 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package Database.ModSocDB</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="Database.html"><font color="#ffffff">Database</font></a>.ModSocDB</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/nikign/Documents/labwork/Piazza_Loading_Code/Database/ModSocDB/__init__.py">/Users/nikign/Documents/labwork/Piazza_Loading_Code/Database/ModSocDB/__init__.py</a></font></td></tr></table>
+    <p><tt>ModSocDB&nbsp;Package.<br>
+&nbsp;<br>
+&nbsp;ModSocDB/__init__.py<br>
+&nbsp;:Author:&nbsp;Collin&nbsp;Lynch<br>
+&nbsp;:Date:&nbsp;09/29/2014<br>
+&nbsp;<br>
+This&nbsp;library&nbsp;provides&nbsp;a&nbsp;Ming-based&nbsp;wrapper&nbsp;on&nbsp;the&nbsp;DM_ModSocDB&nbsp;database.&nbsp;&nbsp;As&nbsp;presently&nbsp;structured&nbsp;it&nbsp;supports&nbsp;the&nbsp;insertion&nbsp;of&nbsp;data&nbsp;from&nbsp;the&nbsp;Barnes&nbsp;2014&nbsp;course&nbsp;and&nbsp;provides&nbsp;access&nbsp;to&nbsp;the&nbsp;code&nbsp;to&nbsp;evaluate&nbsp;it.&nbsp;&nbsp;It&nbsp;may&nbsp;be&nbsp;modified&nbsp;in&nbsp;future&nbsp;to&nbsp;include&nbsp;other&nbsp;components.<br>
+&nbsp;<br>
+Most&nbsp;of&nbsp;the&nbsp;library&nbsp;core&nbsp;resides&nbsp;in&nbsp;the&nbsp;Classes/&nbsp;subpackage.&nbsp;&nbsp;This&nbsp;package&nbsp;should&nbsp;contain&nbsp;one&nbsp;module&nbsp;per&nbsp;object&nbsp;in&nbsp;the&nbsp;library&nbsp;with&nbsp;each&nbsp;object&nbsp;being&nbsp;linked&nbsp;to&nbsp;a&nbsp;raw&nbsp;data&nbsp;source&nbsp;of&nbsp;some&nbsp;type.&nbsp;&nbsp;For&nbsp;more&nbsp;complex&nbsp;data&nbsp;sources&nbsp;a&nbsp;sub-mpodule&nbsp;of&nbsp;Classes&nbsp;is&nbsp;preferred.&nbsp;&nbsp;the&nbsp;Classes/Piazza/&nbsp;sub-module&nbsp;provides&nbsp;classes&nbsp;designed&nbsp;to&nbsp;deal&nbsp;with&nbsp;Piazza&nbsp;data.&nbsp;&nbsp;Similar&nbsp;tactics&nbsp;should&nbsp;be&nbsp;used&nbsp;for&nbsp;the&nbsp;Moodle&nbsp;data&nbsp;and&nbsp;other&nbsp;sources.<br>
+&nbsp;<br>
+In&nbsp;general&nbsp;the&nbsp;preference&nbsp;is&nbsp;for&nbsp;exposed&nbsp;data&nbsp;with&nbsp;objects&nbsp;having&nbsp;limited&nbsp;complexity&nbsp;and&nbsp;for&nbsp;objects&nbsp;in&nbsp;a&nbsp;contains&nbsp;relationship&nbsp;to&nbsp;be&nbsp;described&nbsp;separately&nbsp;and&nbsp;linked&nbsp;to&nbsp;one-another&nbsp;via&nbsp;relationships&nbsp;as&nbsp;is&nbsp;done&nbsp;in&nbsp;the&nbsp;Piazza&nbsp;sub-package.&nbsp;&nbsp;This&nbsp;is&nbsp;preferable&nbsp;for&nbsp;analysis&nbsp;purposes&nbsp;as&nbsp;it&nbsp;makes&nbsp;it&nbsp;easier&nbsp;to&nbsp;write&nbsp;data-specific&nbsp;analysis&nbsp;functions&nbsp;rather&nbsp;than&nbsp;loading&nbsp;the&nbsp;code&nbsp;onto&nbsp;a&nbsp;single&nbsp;complex&nbsp;instance&nbsp;with&nbsp;many&nbsp;internal&nbsp;classes.&nbsp;&nbsp;While&nbsp;this&nbsp;runs&nbsp;counter&nbsp;to&nbsp;the&nbsp;standard&nbsp;MongoDB&nbsp;preference&nbsp;it&nbsp;is&nbsp;easier&nbsp;for&nbsp;shared&nbsp;analysis&nbsp;code.<br>
+&nbsp;<br>
+Additional&nbsp;special-purpose&nbsp;subpackages&nbsp;should&nbsp;be&nbsp;added&nbsp;as&nbsp;needed&nbsp;for&nbsp;common&nbsp;code&nbsp;tasks&nbsp;such&nbsp;as&nbsp;NLP&nbsp;processing&nbsp;(see&nbsp;NLP/).</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="Database.ModSocDB.Classes.html"><strong>Classes</strong>&nbsp;(package)</a><br>
+<a href="Database.ModSocDB.ModSocDB.html">ModSocDB</a><br>
+</td><td width="25%" valign=top><a href="Database.ModSocDB.ModSocDBError.html">ModSocDBError</a><br>
+<a href="Database.ModSocDB.NLP.html">NLP</a><br>
+</td><td width="25%" valign=top><a href="Database.ModSocDB.Utils.html"><strong>Utils</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>BoundDatastore</strong> = &lt;DataStore Database(MongoClient(host=['localhost..., tz_aware=False, connect=True), u'DM_ModSocDB')&gt;<br>
+<strong>DatastoreName</strong> = 'DM_ModSocDB'<br>
+<strong>DocumentSession</strong> = &lt;ming.session.Session object&gt;<br>
+<strong>Session</strong> = TLProxy of &lt;session&gt;
+  &lt;UnitOfWork&gt;
+    &lt;new&gt;
+    &lt;clean&gt;
+    &lt;dirty&gt;
+    &lt;deleted&gt;
+  &lt;imap (0)&gt;</td></tr></table>
+</body></html>

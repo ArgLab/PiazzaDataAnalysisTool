@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ModSocDB.NLP</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="ModSocDB.html"><font color="#ffffff">ModSocDB</font></a>.NLP</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/NLP.pyc">/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/NLP.pyc</a></font></td></tr></table>
+    <p><tt>NLP.py<br>
+:Author:&nbsp;Collin&nbsp;F.&nbsp;Lynch<br>
+:Date:&nbsp;1/07/2015<br>
+&nbsp;<br>
+This&nbsp;code&nbsp;provides&nbsp;for&nbsp;basic&nbsp;NLP&nbsp;capabilities&nbsp;within&nbsp;the&nbsp;library<br>
+and&nbsp;will&nbsp;pre-construct&nbsp;and&nbsp;pre-train&nbsp;some&nbsp;relevant&nbsp;taggers&nbsp;and<br>
+tokenizers&nbsp;for&nbsp;the&nbsp;work.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="name_tools.html">name_tools</a><br>
+</td><td width="25%" valign=top><a href="nltk.html">nltk</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-findNameInText"><strong>findNameInText</strong></a>(Name, Text)</dt><dd><tt>Given&nbsp;a&nbsp;real&nbsp;name&nbsp;represented&nbsp;as&nbsp;a&nbsp;string&nbsp;search&nbsp;for&nbsp;it&nbsp;or&nbsp;the<br>
+components&nbsp;of&nbsp;it&nbsp;within&nbsp;a&nbsp;piece&nbsp;of&nbsp;text.&nbsp;&nbsp;This&nbsp;will&nbsp;try&nbsp;to&nbsp;use<br>
+canonicalization&nbsp;to&nbsp;check&nbsp;for&nbsp;related&nbsp;elements&nbsp;but&nbsp;basically<br>
+relies&nbsp;on&nbsp;a&nbsp;form&nbsp;of&nbsp;string&nbsp;parsing&nbsp;to&nbsp;chunk&nbsp;the&nbsp;text&nbsp;and&nbsp;to<br>
+locate&nbsp;similar&nbsp;names.</tt></dd></dl>
+ <dl><dt><a name="-findPeopleInText"><strong>findPeopleInText</strong></a>(Text)</dt><dd><tt>Given&nbsp;a&nbsp;block&nbsp;of&nbsp;text&nbsp;find&nbsp;all&nbsp;individuals&nbsp;tagged&nbsp;as&nbsp;a<br>
+person&nbsp;from&nbsp;it.&nbsp;&nbsp;This&nbsp;uses&nbsp;code&nbsp;inspired&nbsp;by:<br>
+<a href="http://stackoverflow.com/questions/20290870/improving-the-extraction-of-human-names-with-nltk">http://stackoverflow.com/questions/20290870/improving-the-extraction-of-human-names-with-nltk</a><br>
+&nbsp;<br>
+It&nbsp;will&nbsp;first&nbsp;construct&nbsp;a&nbsp;list&nbsp;of&nbsp;sentence&nbsp;tokens&nbsp;from<br>
+the&nbsp;text&nbsp;and&nbsp;then&nbsp;for&nbsp;each&nbsp;sentence&nbsp;it&nbsp;will&nbsp;perform&nbsp;a&nbsp;word<br>
+tokenization&nbsp;and&nbsp;use&nbsp;part&nbsp;of&nbsp;speech&nbsp;tagging&nbsp;to&nbsp;identify<br>
+persons.&nbsp;&nbsp;Those&nbsp;will&nbsp;then&nbsp;be&nbsp;returned&nbsp;as&nbsp;a&nbsp;list.<br>
+&nbsp;<br>
+This&nbsp;relies&nbsp;on&nbsp;the&nbsp;POS&nbsp;tagger&nbsp;to&nbsp;find&nbsp;subtrees&nbsp;that&nbsp;are<br>
+named&nbsp;entities.</tt></dd></dl>
+ <dl><dt><a name="-makeSplitNameDict"><strong>makeSplitNameDict</strong></a>(Name, Canonicalize<font color="#909090">=True</font>)</dt><dd><tt>Given&nbsp;a&nbsp;name&nbsp;as&nbsp;a&nbsp;single&nbsp;string&nbsp;this&nbsp;code&nbsp;will&nbsp;split&nbsp;it&nbsp;into&nbsp;a<br>
+dict&nbsp;containing&nbsp;named&nbsp;name&nbsp;components.&nbsp;&nbsp;More&nbsp;specifically&nbsp;it<br>
+will&nbsp;return&nbsp;a&nbsp;dict&nbsp;with&nbsp;the&nbsp;fields:&nbsp;Honorific&nbsp;(e.g.&nbsp;Dr.),<br>
+FirstName,&nbsp;MiddleName,&nbsp;LastName,&nbsp;and&nbsp;Postfix&nbsp;(e.g.&nbsp;Jr.).<br>
+&nbsp;<br>
+If&nbsp;Canonicalize&nbsp;is&nbsp;True&nbsp;(default)&nbsp;then&nbsp;the&nbsp;name&nbsp;will&nbsp;be<br>
+canonicalized&nbsp;before&nbsp;it&nbsp;is&nbsp;split.<br>
+&nbsp;<br>
+This&nbsp;code&nbsp;relies&nbsp;on&nbsp;the&nbsp;name_tools&nbsp;library&nbsp;for&nbsp;canonicalization<br>
+and&nbsp;name&nbsp;splitting.</tt></dd></dl>
+ <dl><dt><a name="-replaceNameInText"><strong>replaceNameInText</strong></a>(FirstName, LastName, FirstNameRep, LastNameRep, Text)</dt><dd><tt>Given&nbsp;a&nbsp;FirstName&nbsp;and&nbsp;a&nbsp;LastName,&nbsp;this&nbsp;code&nbsp;will&nbsp;find&nbsp;all&nbsp;instances<br>
+of&nbsp;either&nbsp;one&nbsp;in&nbsp;the&nbsp;text&nbsp;and&nbsp;will&nbsp;then&nbsp;replace&nbsp;them&nbsp;with&nbsp;the<br>
+supplied&nbsp;replacement&nbsp;strings.&nbsp;&nbsp;It&nbsp;will&nbsp;then&nbsp;make&nbsp;the&nbsp;replacement<br>
+and&nbsp;return&nbsp;the&nbsp;resulting&nbsp;string.<br>
+&nbsp;<br>
+If&nbsp;no&nbsp;changes&nbsp;are&nbsp;made&nbsp;to&nbsp;the&nbsp;text&nbsp;then&nbsp;this&nbsp;code&nbsp;will&nbsp;return<br>
+None.&nbsp;&nbsp;Else&nbsp;it&nbsp;will&nbsp;return&nbsp;an&nbsp;updated&nbsp;form&nbsp;of&nbsp;the&nbsp;text.&nbsp;<br>
+&nbsp;<br>
+If&nbsp;either&nbsp;name&nbsp;is&nbsp;None&nbsp;then&nbsp;no&nbsp;change&nbsp;will&nbsp;be&nbsp;made&nbsp;for&nbsp;replacement.<br>
+If&nbsp;both&nbsp;names&nbsp;are&nbsp;None&nbsp;then&nbsp;this&nbsp;will&nbsp;simply&nbsp;return&nbsp;None&nbsp;at&nbsp;the&nbsp;outset.</tt></dd></dl>
+</td></tr></table>
+</body></html>

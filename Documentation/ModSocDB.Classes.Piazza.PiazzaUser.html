@@ -1,0 +1,445 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ModSocDB.Classes.Piazza.PiazzaUser</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="ModSocDB.html"><font color="#ffffff">ModSocDB</font></a>.<a href="ModSocDB.Classes.html"><font color="#ffffff">Classes</font></a>.<a href="ModSocDB.Classes.Piazza.html"><font color="#ffffff">Piazza</font></a>.PiazzaUser</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/Classes/Piazza/PiazzaUser.py">/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/Classes/Piazza/PiazzaUser.py</a></font></td></tr></table>
+    <p><tt><a href="#PiazzaUser">PiazzaUser</a>.py<br>
+:Author:&nbsp;Collin&nbsp;Lynch<br>
+:Date:&nbsp;09/29/2014<br>
+&nbsp;<br>
+The&nbsp;<a href="#PiazzaUser">PiazzaUser</a>&nbsp;class&nbsp;defines&nbsp;users&nbsp;of&nbsp;the&nbsp;Piazza&nbsp;system&nbsp;and&nbsp;provides&nbsp;for&nbsp;access&nbsp;to&nbsp;the&nbsp;users&nbsp;themselves.&nbsp;&nbsp;These&nbsp;will&nbsp;be&nbsp;generated&nbsp;from&nbsp;the&nbsp;raw&nbsp;piazza&nbsp;users&nbsp;and&nbsp;differ&nbsp;chiefly&nbsp;in&nbsp;the&nbsp;existence&nbsp;of&nbsp;the&nbsp;split&nbsp;names.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ModSocDB.html">ModSocDB</a><br>
+<a href="ModSocDB.NLP.html">ModSocDB.NLP</a><br>
+</td><td width="25%" valign=top><a href="ModSocDB.Classes.User.html">ModSocDB.Classes.User</a><br>
+<a href="name_tools.html">name_tools</a><br>
+</td><td width="25%" valign=top><a href="ming.schema.html">ming.schema</a><br>
+<a href="string.html">string</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ModSocDB.Classes.Piazza.PiazzaUser.html#PiazzaUser">PiazzaUser</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PiazzaUser">class <strong>PiazzaUser</strong></a>(<a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;<a href="#PiazzaUser">PiazzaUser</a>&nbsp;class&nbsp;represents&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;the&nbsp;user&nbsp;records&nbsp;that<br>
+were&nbsp;pulled&nbsp;from&nbsp;the&nbsp;piazza&nbsp;data&nbsp;in&nbsp;the&nbsp;form&nbsp;of&nbsp;the&nbsp;RawPiazzaUser<br>
+instances.&nbsp;&nbsp;They&nbsp;will&nbsp;be&nbsp;generated&nbsp;by&nbsp;code&nbsp;in&nbsp;the&nbsp;RawPiazzaUser<br>
+module&nbsp;and&nbsp;would&nbsp;then&nbsp;generate&nbsp;the&nbsp;first&nbsp;and&nbsp;last&nbsp;names&nbsp;and&nbsp;perform<br>
+other&nbsp;relevant&nbsp;features.<br>
+&nbsp;<br>
+Access&nbsp;to&nbsp;the&nbsp;fields&nbsp;will&nbsp;be&nbsp;provided&nbsp;later&nbsp;on&nbsp;as&nbsp;needed&nbsp;and<br>
+anonymization&nbsp;when&nbsp;it&nbsp;happens&nbsp;will&nbsp;be&nbsp;done&nbsp;on&nbsp;this&nbsp;object.<br>
+&nbsp;<br>
+The&nbsp;user&nbsp;contains&nbsp;the&nbsp;following&nbsp;fields:<br>
+&nbsp;<br>
+Collection:&nbsp;piazza_users<br>
+&nbsp;<br>
+&nbsp;<br>
+Relations:<br>
+---------------------------------------------------<br>
+*&nbsp;Dataset:&nbsp;Link&nbsp;to&nbsp;the&nbsp;associated&nbsp;Dataset.<br>
+*&nbsp;PiazzaContent_GoodTags:&nbsp;Relationship&nbsp;with&nbsp;good&nbsp;tags&nbsp;by&nbsp;this&nbsp;user.<br>
+*&nbsp;PiazzaContent_HistoryEntries:&nbsp;Relationship&nbsp;with&nbsp;edited&nbsp;history&nbsp;elements.<br>
+*&nbsp;PiazzaContent_ChangeLogs:&nbsp;ChangeLog&nbsp;Entries&nbsp;for&nbsp;the&nbsp;PiazzaContent.<br>
+*&nbsp;PiazzaContent_Children:&nbsp;Children&nbsp;authored.<br>
+*&nbsp;PiazzaContent_Child_Endorsements:&nbsp;Endorsements&nbsp;of&nbsp;child&nbsp;posts.<br>
+*&nbsp;PiazzaContent_Child_HistoryEntries:&nbsp;History&nbsp;of&nbsp;children.<br>
+*&nbsp;PiazzaContent_Child_Subchildren:&nbsp;Subchildren&nbsp;authored&nbsp;by&nbsp;this&nbsp;user.<br>
+&nbsp;<br>
+&nbsp;<br>
+Fields:<br>
+-------------------------------------------------------------<br>
+*&nbsp;Course_ID:&nbsp;ID&nbsp;of&nbsp;the&nbsp;associated&nbsp;Dataset.<br>
+*&nbsp;_id:&nbsp;Mongodb&nbsp;object&nbsp;ID&nbsp;(unique).<br>
+*&nbsp;user_id:&nbsp;(string)&nbsp;Piazza&nbsp;unique&nbsp;user&nbsp;ID.&nbsp;&nbsp;<br>
+*&nbsp;answers:&nbsp;(int)&nbsp;Count&nbsp;of&nbsp;answers&nbsp;given&nbsp;to&nbsp;questions.<br>
+*&nbsp;posts:&nbsp;(int)&nbsp;Count&nbsp;of&nbsp;posts&nbsp;made.<br>
+*&nbsp;views:&nbsp;(int)&nbsp;Count&nbsp;of&nbsp;views&nbsp;made.&nbsp;&nbsp;<br>
+*&nbsp;asks:&nbsp;(int)&nbsp;Count&nbsp;of&nbsp;asks&nbsp;made.&nbsp;&nbsp;<br>
+*&nbsp;name:&nbsp;(string)&nbsp;Student&nbsp;real&nbsp;name&nbsp;or&nbsp;anonymized&nbsp;name.<br>
+*&nbsp;days:&nbsp;(int)&nbsp;Days&nbsp;active&nbsp;or&nbsp;logged&nbsp;in?<br>
+*&nbsp;email:&nbsp;(string)&nbsp;User's&nbsp;email&nbsp;address&nbsp;(is&nbsp;in&nbsp;standard&nbsp;form&nbsp;so&nbsp;can&nbsp;be&nbsp;split.)<br>
+*&nbsp;first_name:&nbsp;(string)&nbsp;first&nbsp;name&nbsp;of&nbsp;student&nbsp;extracted&nbsp;from&nbsp;name&nbsp;field.<br>
+*&nbsp;middle_name:&nbsp;(string)&nbsp;middle&nbsp;name&nbsp;of&nbsp;student&nbsp;extracted&nbsp;from&nbsp;name&nbsp;field.<br>
+*&nbsp;last_name:&nbsp;(string)&nbsp;last&nbsp;name&nbsp;of&nbsp;student&nbsp;extracted&nbsp;from&nbsp;name&nbsp;field.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="ModSocDB.Classes.Piazza.PiazzaUser.html#PiazzaUser">PiazzaUser</a></dd>
+<dd><a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<strong>__init__</strong> = &lt;ming.odm.mapper._InitDecorator object&gt;
+<dl><dt><a name="PiazzaUser-getEmail"><strong>getEmail</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;email.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-getFirstName"><strong>getFirstName</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;first_name&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-getLastName"><strong>getLastName</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;last_name&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-getMiddleName"><strong>getMiddleName</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;middle_name&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-getName"><strong>getName</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;User&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-getSplitEmail"><strong>getSplitEmail</strong></a>(self)</dt><dd><tt>If&nbsp;the&nbsp;e-mail&nbsp;is&nbsp;not&nbsp;null&nbsp;split&nbsp;it&nbsp;around&nbsp;the&nbsp;@<br>
+and&nbsp;return&nbsp;the&nbsp;pairs&nbsp;as&nbsp;a&nbsp;2-tuple.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-getSplitName"><strong>getSplitName</strong></a>(self)</dt><dd><tt>This&nbsp;accessor&nbsp;uses&nbsp;the&nbsp;name_tools&nbsp;library&nbsp;to<br>
+get&nbsp;the&nbsp;split&nbsp;name&nbsp;contents&nbsp;as&nbsp;a&nbsp;tuple&nbsp;which<br>
+will&nbsp;then&nbsp;be&nbsp;returned.&nbsp;&nbsp;It&nbsp;is&nbsp;also&nbsp;used&nbsp;to&nbsp;set<br>
+the&nbsp;standard&nbsp;first-name,&nbsp;middleName,&nbsp;and&nbsp;LastName<br>
+fields&nbsp;above.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-getUserID"><strong>getUserID</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;Piazza&nbsp;User&nbsp;ID&nbsp;set&nbsp;in&nbsp;the&nbsp;system.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-makeSplitNameFields"><strong>makeSplitNameFields</strong></a>(self)</dt><dd><tt>Split&nbsp;the&nbsp;user&nbsp;name&nbsp;into&nbsp;personal&nbsp;and&nbsp;family&nbsp;names&nbsp;so&nbsp;that<br>
+those&nbsp;can&nbsp;be&nbsp;used&nbsp;for&nbsp;searching&nbsp;in&nbsp;the&nbsp;text.&nbsp;&nbsp;This&nbsp;uses<br>
+the&nbsp;name_tools&nbsp;library&nbsp;to&nbsp;segment&nbsp;the&nbsp;name&nbsp;into&nbsp;the<br>
+standard&nbsp;blocks&nbsp;(Honorific,&nbsp;Personal&nbsp;Name,&nbsp;Family&nbsp;Name,<br>
+Modifier).&nbsp;&nbsp;It&nbsp;will&nbsp;then&nbsp;split&nbsp;the&nbsp;personal&nbsp;name&nbsp;on<br>
+whitespace&nbsp;to&nbsp;get&nbsp;the&nbsp;first&nbsp;name.</tt></dd></dl>
+
+<strong>query</strong> = &lt;ming.odm.mapper._ClassQuery object&gt;
+<dl><dt><a name="PiazzaUser-setEmail"><strong>setEmail</strong></a>(self, NewEmail)</dt><dd><tt>Set&nbsp;the&nbsp;new&nbsp;email.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-setFirstName"><strong>setFirstName</strong></a>(self, NewName)</dt><dd><tt>Set&nbsp;the&nbsp;first_name&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-setLastName"><strong>setLastName</strong></a>(self, NewName)</dt><dd><tt>Set&nbsp;the&nbsp;last_name&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-setMiddleName"><strong>setMiddleName</strong></a>(self, NewName)</dt><dd><tt>Set&nbsp;the&nbsp;middle_name&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-setName"><strong>setName</strong></a>(self, NewName)</dt><dd><tt>Set&nbsp;the&nbsp;user&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-setUserID"><strong>setUserID</strong></a>(self, NewUID)</dt><dd><tt>Set&nbsp;the&nbsp;user_id&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-syncPiazzaAuthorIDs"><strong>syncPiazzaAuthorIDs</strong></a>(self)</dt><dd><tt>As&nbsp;part&nbsp;of&nbsp;the&nbsp;anonymization&nbsp;process&nbsp;it&nbsp;is&nbsp;necessary&nbsp;to<br>
+reset&nbsp;the&nbsp;anonymous&nbsp;user&nbsp;ID.&nbsp;&nbsp;This&nbsp;code&nbsp;will&nbsp;first&nbsp;pull<br>
+the&nbsp;name&nbsp;and&nbsp;ID&nbsp;information&nbsp;from&nbsp;the&nbsp;user&nbsp;instance&nbsp;and&nbsp;<br>
+will&nbsp;then&nbsp;set&nbsp;the&nbsp;values&nbsp;locally.&nbsp;&nbsp;<br>
+&nbsp;<br>
+This&nbsp;code&nbsp;will&nbsp;then&nbsp;iterate&nbsp;over&nbsp;all&nbsp;items&nbsp;that&nbsp;are&nbsp;<br>
+linked&nbsp;to&nbsp;this&nbsp;user&nbsp;and&nbsp;that&nbsp;have&nbsp;a&nbsp;set&nbsp;author&nbsp;or&nbsp;uid&nbsp;<br>
+field&nbsp;associated&nbsp;with&nbsp;it.&nbsp;&nbsp;These&nbsp;will&nbsp;then&nbsp;be&nbsp;reset&nbsp;to&nbsp;<br>
+the&nbsp;current&nbsp;user&nbsp;ID.&nbsp;&nbsp;This&nbsp;assumes&nbsp;that&nbsp;the&nbsp;links&nbsp;are&nbsp;<br>
+already&nbsp;set&nbsp;correctly&nbsp;and&nbsp;that&nbsp;the&nbsp;sole&nbsp;purpose&nbsp;is&nbsp;a&nbsp;<br>
+brute-force&nbsp;reset&nbsp;of&nbsp;the&nbsp;link&nbsp;code.<br>
+&nbsp;<br>
+This&nbsp;will&nbsp;also&nbsp;foceably&nbsp;sync&nbsp;user&nbsp;names.&nbsp;&nbsp;Facebook&nbsp;IDs&nbsp;and<br>
+photos&nbsp;will&nbsp;simply&nbsp;be&nbsp;purged&nbsp;if&nbsp;present.<br>
+&nbsp;<br>
+NOTE::&nbsp;This&nbsp;makes&nbsp;no&nbsp;attempt&nbsp;to&nbsp;retain&nbsp;separate&nbsp;facebook&nbsp;IDs<br>
+emails&nbsp;or&nbsp;photos&nbsp;from&nbsp;the&nbsp;good&nbsp;tags&nbsp;or&nbsp;endorsements&nbsp;for&nbsp;later<br>
+use.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="PiazzaUser-migrateRawContent"><strong>migrateRawContent</strong></a>(DatasetID)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;static&nbsp;method&nbsp;that&nbsp;will&nbsp;extract&nbsp;and&nbsp;iterate&nbsp;over<br>
+the&nbsp;raw&nbsp;user&nbsp;content&nbsp;to&nbsp;generate&nbsp;the&nbsp;additional&nbsp;fields&nbsp;that<br>
+will&nbsp;be&nbsp;used&nbsp;for&nbsp;later&nbsp;evaluation.<br>
+&nbsp;<br>
+At&nbsp;the&nbsp;same&nbsp;time&nbsp;this&nbsp;will&nbsp;reevaluate&nbsp;the&nbsp;name&nbsp;fields.&nbsp;&nbsp;If&nbsp;the<br>
+name&nbsp;field&nbsp;is&nbsp;the&nbsp;empty&nbsp;string&nbsp;then&nbsp;it&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;None.&nbsp;<br>
+&nbsp;<br>
+It&nbsp;will&nbsp;also&nbsp;establish&nbsp;a&nbsp;link&nbsp;with&nbsp;an&nbsp;appropriate&nbsp;User&nbsp;instance<br>
+in&nbsp;the&nbsp;database&nbsp;or,&nbsp;if&nbsp;none&nbsp;is&nbsp;present,&nbsp;it&nbsp;will&nbsp;create&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-overwriteUserData"><strong>overwriteUserData</strong></a>(DatasetID<font color="#909090">=None</font>, Timeout<font color="#909090">=False</font>)</dt><dd><tt>This&nbsp;static&nbsp;method&nbsp;will&nbsp;query&nbsp;for&nbsp;all&nbsp;defined&nbsp;users&nbsp;and&nbsp;will<br>
+overwrite&nbsp;their&nbsp;ID&nbsp;information&nbsp;based&nbsp;upon&nbsp;the&nbsp;information&nbsp;in<br>
+the&nbsp;associated&nbsp;User&nbsp;class&nbsp;instance.<br>
+&nbsp;<br>
+It&nbsp;is&nbsp;defined&nbsp;here&nbsp;as&nbsp;a&nbsp;static&nbsp;method&nbsp;but&nbsp;will&nbsp;be&nbsp;called<br>
+primarily&nbsp;from&nbsp;the&nbsp;anonymization&nbsp;code&nbsp;after&nbsp;the&nbsp;upstream<br>
+users&nbsp;have&nbsp;been&nbsp;updated.<br>
+&nbsp;<br>
+Most&nbsp;of&nbsp;the&nbsp;actual&nbsp;work&nbsp;is&nbsp;done&nbsp;by&nbsp;the&nbsp;syncPiazzaAuthorIDs<br>
+method&nbsp;which&nbsp;does&nbsp;the&nbsp;scut&nbsp;work.</tt></dd></dl>
+
+<dl><dt><a name="PiazzaUser-removeDuplicateUsers"><strong>removeDuplicateUsers</strong></a>(DatasetID)</dt><dd><tt>Remove&nbsp;duplicate&nbsp;users&nbsp;from&nbsp;the&nbsp;dataset.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>CentralUser</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>CentralUser_ID</strong></dt>
+<dd><tt>Declares&nbsp;a&nbsp;field&nbsp;to&nbsp;store&nbsp;one&nbsp;or&nbsp;more&nbsp;ObjectIds&nbsp;of&nbsp;a&nbsp;related&nbsp;objects.<br>
+&nbsp;<br>
+The&nbsp;``related``&nbsp;argument&nbsp;must&nbsp;be&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;or&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;(to&nbsp;avoid&nbsp;circular&nbsp;dependencies).&nbsp;The<br>
+field&nbsp;itself&nbsp;will&nbsp;actually&nbsp;store&nbsp;and&nbsp;retrieve&nbsp;:class:`bson.ObjectId`&nbsp;instances.<br>
+&nbsp;<br>
+``uselist``&nbsp;argument&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;whenever&nbsp;the&nbsp;object&nbsp;can&nbsp;relate<br>
+to&nbsp;more&nbsp;than&nbsp;one&nbsp;remote&nbsp;object&nbsp;(many-to-many)&nbsp;and&nbsp;so&nbsp;the&nbsp;ids&nbsp;are&nbsp;stored&nbsp;in<br>
+a&nbsp;MongoDB&nbsp;Array.<br>
+&nbsp;<br>
+Usually&nbsp;a&nbsp;ForeignIdProperty&nbsp;with&nbsp;value&nbsp;``None``&nbsp;means&nbsp;that&nbsp;the&nbsp;object&nbsp;is&nbsp;not<br>
+related&nbsp;to&nbsp;any&nbsp;other&nbsp;entity,&nbsp;in&nbsp;case&nbsp;you&nbsp;have&nbsp;entities&nbsp;that&nbsp;might&nbsp;have&nbsp;``None``<br>
+as&nbsp;their&nbsp;ids&nbsp;you&nbsp;can&nbsp;use&nbsp;``allow_none``&nbsp;option&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;that&nbsp;``None``&nbsp;is<br>
+a&nbsp;valid&nbsp;foreign&nbsp;id.</tt></dd>
+</dl>
+<dl><dt><strong>Course</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>Course_ID</strong></dt>
+<dd><tt>Declares&nbsp;a&nbsp;field&nbsp;to&nbsp;store&nbsp;one&nbsp;or&nbsp;more&nbsp;ObjectIds&nbsp;of&nbsp;a&nbsp;related&nbsp;objects.<br>
+&nbsp;<br>
+The&nbsp;``related``&nbsp;argument&nbsp;must&nbsp;be&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;or&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;(to&nbsp;avoid&nbsp;circular&nbsp;dependencies).&nbsp;The<br>
+field&nbsp;itself&nbsp;will&nbsp;actually&nbsp;store&nbsp;and&nbsp;retrieve&nbsp;:class:`bson.ObjectId`&nbsp;instances.<br>
+&nbsp;<br>
+``uselist``&nbsp;argument&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;whenever&nbsp;the&nbsp;object&nbsp;can&nbsp;relate<br>
+to&nbsp;more&nbsp;than&nbsp;one&nbsp;remote&nbsp;object&nbsp;(many-to-many)&nbsp;and&nbsp;so&nbsp;the&nbsp;ids&nbsp;are&nbsp;stored&nbsp;in<br>
+a&nbsp;MongoDB&nbsp;Array.<br>
+&nbsp;<br>
+Usually&nbsp;a&nbsp;ForeignIdProperty&nbsp;with&nbsp;value&nbsp;``None``&nbsp;means&nbsp;that&nbsp;the&nbsp;object&nbsp;is&nbsp;not<br>
+related&nbsp;to&nbsp;any&nbsp;other&nbsp;entity,&nbsp;in&nbsp;case&nbsp;you&nbsp;have&nbsp;entities&nbsp;that&nbsp;might&nbsp;have&nbsp;``None``<br>
+as&nbsp;their&nbsp;ids&nbsp;you&nbsp;can&nbsp;use&nbsp;``allow_none``&nbsp;option&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;that&nbsp;``None``&nbsp;is<br>
+a&nbsp;valid&nbsp;foreign&nbsp;id.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaContent_ChangeLogs</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaContent_Child_Endorsements</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaContent_Child_HistoryEntries</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaContent_Child_Subchildren</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaContent_Children</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaContent_GoodTags</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>PiazzaContent_HistoryEntries</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>answers</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>asks</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>days</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>email</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>first_name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>last_name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>middle_name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>note</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>posts</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>user_id</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>views</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mongometa__</strong> = &lt;class 'ModSocDB.Classes.Piazza.PiazzaUser.__mongometa__&lt;PiazzaUser&gt;'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>:<br>
+<dl><dt><a name="PiazzaUser-__contains__"><strong>__contains__</strong></a>(self_, name)</dt></dl>
+
+<dl><dt><a name="PiazzaUser-__getitem__"><strong>__getitem__</strong></a>(self_, name)</dt></dl>
+
+<dl><dt><a name="PiazzaUser-__repr__"><strong>__repr__</strong></a>(self_)</dt></dl>
+
+<dl><dt><a name="PiazzaUser-__setitem__"><strong>__setitem__</strong></a>(self_, name, value)</dt></dl>
+
+<dl><dt><a name="PiazzaUser-delete"><strong>delete</strong></a>(self_)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-collectAllPiazzaIDs"><strong>collectAllPiazzaIDs</strong></a>(DatasetID<font color="#909090">=None</font>)</dt><dd><tt>Collect&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;PiazzaIDs&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+ <dl><dt><a name="-collectUsersByPiazzaID"><strong>collectUsersByPiazzaID</strong></a>(PiazzaID)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;set&nbsp;Piazza&nbsp;ID.</tt></dd></dl>
+ <dl><dt><a name="-countAllUsers"><strong>countAllUsers</strong></a>()</dt><dd><tt>Simple&nbsp;query&nbsp;method&nbsp;to&nbsp;count&nbsp;all&nbsp;users&nbsp;in&nbsp;the&nbsp;DB.</tt></dd></dl>
+ <dl><dt><a name="-findAllUsers"><strong>findAllUsers</strong></a>(DatasetID<font color="#909090">=None</font>, Timeout<font color="#909090">=True</font>)</dt><dd><tt>Collect&nbsp;all&nbsp;users&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+ <dl><dt><a name="-findUserByID"><strong>findUserByID</strong></a>(ID)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;set&nbsp;ID.</tt></dd></dl>
+ <dl><dt><a name="-findUserByName"><strong>findUserByName</strong></a>(name)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;Piazza&nbsp;Fullname</tt></dd></dl>
+ <dl><dt><a name="-findUserByPiazzaID"><strong>findUserByPiazzaID</strong></a>(PiazzaID)</dt><dd><tt>Find&nbsp;the&nbsp;user&nbsp;with&nbsp;the&nbsp;set&nbsp;Piazza&nbsp;ID.</tt></dd></dl>
+ <dl><dt><a name="-getCentralUserIDByPiazzaID"><strong>getCentralUserIDByPiazzaID</strong></a>(PiazzaID)</dt><dd><tt>Find&nbsp;the&nbsp;central&nbsp;user&nbsp;ID&nbsp;associated&nbsp;with&nbsp;the&nbsp;set&nbsp;user&nbsp;ID.&nbsp;&nbsp;<br>
+Raise&nbsp;an&nbsp;exception&nbsp;if&nbsp;no&nbsp;Piazza&nbsp;User&nbsp;is&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-getCentralUserIDByPiazzaUserID"><strong>getCentralUserIDByPiazzaUserID</strong></a>(ID)</dt><dd><tt>Find&nbsp;the&nbsp;central&nbsp;user&nbsp;ID&nbsp;associated&nbsp;with&nbsp;the&nbsp;set&nbsp;user&nbsp;ID.&nbsp;&nbsp;<br>
+Raise&nbsp;an&nbsp;exception&nbsp;if&nbsp;no&nbsp;Piazza&nbsp;User&nbsp;is&nbsp;found.</tt></dd></dl>
+</td></tr></table>
+</body></html>

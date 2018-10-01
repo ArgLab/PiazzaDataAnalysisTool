@@ -1,0 +1,336 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ModSocDB.Classes.Piazza.PiazzaContent_Child_Subchild</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="ModSocDB.html"><font color="#ffffff">ModSocDB</font></a>.<a href="ModSocDB.Classes.html"><font color="#ffffff">Classes</font></a>.<a href="ModSocDB.Classes.Piazza.html"><font color="#ffffff">Piazza</font></a>.PiazzaContent_Child_Subchild</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/Classes/Piazza/PiazzaContent_Child_Subchild.py">/Users/nikign/Documents/labwork/Piazza_Loading_Code/ModSocDB/Classes/Piazza/PiazzaContent_Child_Subchild.py</a></font></td></tr></table>
+    <p><tt><a href="#PiazzaContent_Child_Subchild">PiazzaContent_Child_Subchild</a>.py<br>
+:Author:&nbsp;Collin&nbsp;Lynch<br>
+:Date:&nbsp;10/28/2014<br>
+&nbsp;<br>
+History&nbsp;record&nbsp;for&nbsp;Piazza&nbsp;Content&nbsp;Children.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ModSocDB.html">ModSocDB</a><br>
+<a href="ModSocDB.Classes.Piazza.PiazzaUser.html">ModSocDB.Classes.Piazza.PiazzaUser</a><br>
+</td><td width="25%" valign=top><a href="ModSocDB.Classes.User.html">ModSocDB.Classes.User</a><br>
+<a href="copy.html">copy</a><br>
+</td><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+<a href="ming.schema.html">ming.schema</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ModSocDB.Classes.Piazza.PiazzaContent_Child_Subchild.html#PiazzaContent_Child_Subchild">PiazzaContent_Child_Subchild</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PiazzaContent_Child_Subchild">class <strong>PiazzaContent_Child_Subchild</strong></a>(<a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Subchildren&nbsp;of&nbsp;the&nbsp;child&nbsp;posts&nbsp;that&nbsp;is,&nbsp;replies&nbsp;to&nbsp;replies.<br>
+&nbsp;<br>
+Collection:&nbsp;piazza_content_children_subchildren&nbsp;&nbsp;<br>
+&nbsp;<br>
+Relations:<br>
+*&nbsp;Dataset:&nbsp;Link&nbsp;to&nbsp;the&nbsp;associated&nbsp;Dataset.<br>
+*&nbsp;Parent:&nbsp;Parent&nbsp;Piazza&nbsp;Content.<br>
+*&nbsp;Author:&nbsp;Link&nbsp;to&nbsp;the&nbsp;associated&nbsp;user.<br>
+*&nbsp;CentralAuthor:&nbsp;The&nbsp;Central&nbsp;author&nbsp;object&nbsp;for&nbsp;this&nbsp;user.<br>
+&nbsp;<br>
+Fields:<br>
+*&nbsp;Course_ID:&nbsp;ID&nbsp;of&nbsp;the&nbsp;associated&nbsp;Dataset.<br>
+*&nbsp;Parent_ID:&nbsp;ID&nbsp;of&nbsp;parent&nbsp;content.<br>
+*&nbsp;Author_ID:&nbsp;ID&nbsp;of&nbsp;original&nbsp;author.<br>
+*&nbsp;CentralAuthor_ID:&nbsp;Mongoid&nbsp;of&nbsp;the&nbsp;Central&nbsp;author&nbsp;of&nbsp;this&nbsp;change.<br>
+*&nbsp;_id:&nbsp;Mongodb&nbsp;object&nbsp;ID&nbsp;(unique).<br>
+*&nbsp;ThreadID:&nbsp;(int)&nbsp;Unknown&nbsp;int&nbsp;believed&nbsp;to&nbsp;be&nbsp;post&nbsp;number.<br>
+*&nbsp;folders:&nbsp;(string)&nbsp;Folders&nbsp;this&nbsp;element&nbsp;is&nbsp;in.<br>
+*&nbsp;updated:&nbsp;(datetime)&nbsp;Date&nbsp;of&nbsp;last&nbsp;update?<br>
+*&nbsp;uid:&nbsp;(string)&nbsp;Piazza&nbsp;id&nbsp;of&nbsp;original&nbsp;author.<br>
+*&nbsp;created:&nbsp;(datetime)&nbsp;Date&nbsp;created.<br>
+*&nbsp;anon:&nbsp;(string)&nbsp;setting&nbsp;indicating&nbsp;anonymous&nbsp;creation.<br>
+*&nbsp;bucket_name:&nbsp;(string)&nbsp;Storage&nbsp;bucket&nbsp;for&nbsp;this&nbsp;item.<br>
+*&nbsp;bucket_order:&nbsp;(int)&nbsp;Location&nbsp;in&nbsp;the&nbsp;bucket.<br>
+*&nbsp;id:&nbsp;(string)&nbsp;internal&nbsp;id&nbsp;of&nbsp;the&nbsp;subchild&nbsp;item.<br>
+*&nbsp;type:&nbsp;(string)&nbsp;Sub-post&nbsp;type.&nbsp;&nbsp;<br>
+*&nbsp;subject:&nbsp;(string)&nbsp;Sub-post&nbsp;subject.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="ModSocDB.Classes.Piazza.PiazzaContent_Child_Subchild.html#PiazzaContent_Child_Subchild">PiazzaContent_Child_Subchild</a></dd>
+<dd><a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<strong>__init__</strong> = &lt;ming.odm.mapper._InitDecorator object&gt;
+<dl><dt><a name="PiazzaContent_Child_Subchild-getLatestHistory"><strong>getLatestHistory</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;latest&nbsp;history&nbsp;entry&nbsp;by&nbsp;date.</tt></dd></dl>
+
+<strong>query</strong> = &lt;ming.odm.mapper._ClassQuery object&gt;
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="PiazzaContent_Child_Subchild-overwriteUserData"><strong>overwriteUserData</strong></a>(DatasetID<font color="#909090">=None</font>, Timeout<font color="#909090">=False</font>)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>Author</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>Author_ID</strong></dt>
+<dd><tt>Declares&nbsp;a&nbsp;field&nbsp;to&nbsp;store&nbsp;one&nbsp;or&nbsp;more&nbsp;ObjectIds&nbsp;of&nbsp;a&nbsp;related&nbsp;objects.<br>
+&nbsp;<br>
+The&nbsp;``related``&nbsp;argument&nbsp;must&nbsp;be&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;or&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;(to&nbsp;avoid&nbsp;circular&nbsp;dependencies).&nbsp;The<br>
+field&nbsp;itself&nbsp;will&nbsp;actually&nbsp;store&nbsp;and&nbsp;retrieve&nbsp;:class:`bson.ObjectId`&nbsp;instances.<br>
+&nbsp;<br>
+``uselist``&nbsp;argument&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;whenever&nbsp;the&nbsp;object&nbsp;can&nbsp;relate<br>
+to&nbsp;more&nbsp;than&nbsp;one&nbsp;remote&nbsp;object&nbsp;(many-to-many)&nbsp;and&nbsp;so&nbsp;the&nbsp;ids&nbsp;are&nbsp;stored&nbsp;in<br>
+a&nbsp;MongoDB&nbsp;Array.<br>
+&nbsp;<br>
+Usually&nbsp;a&nbsp;ForeignIdProperty&nbsp;with&nbsp;value&nbsp;``None``&nbsp;means&nbsp;that&nbsp;the&nbsp;object&nbsp;is&nbsp;not<br>
+related&nbsp;to&nbsp;any&nbsp;other&nbsp;entity,&nbsp;in&nbsp;case&nbsp;you&nbsp;have&nbsp;entities&nbsp;that&nbsp;might&nbsp;have&nbsp;``None``<br>
+as&nbsp;their&nbsp;ids&nbsp;you&nbsp;can&nbsp;use&nbsp;``allow_none``&nbsp;option&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;that&nbsp;``None``&nbsp;is<br>
+a&nbsp;valid&nbsp;foreign&nbsp;id.</tt></dd>
+</dl>
+<dl><dt><strong>CentralAuthor</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>CentralAuthor_ID</strong></dt>
+<dd><tt>Declares&nbsp;a&nbsp;field&nbsp;to&nbsp;store&nbsp;one&nbsp;or&nbsp;more&nbsp;ObjectIds&nbsp;of&nbsp;a&nbsp;related&nbsp;objects.<br>
+&nbsp;<br>
+The&nbsp;``related``&nbsp;argument&nbsp;must&nbsp;be&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;or&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;(to&nbsp;avoid&nbsp;circular&nbsp;dependencies).&nbsp;The<br>
+field&nbsp;itself&nbsp;will&nbsp;actually&nbsp;store&nbsp;and&nbsp;retrieve&nbsp;:class:`bson.ObjectId`&nbsp;instances.<br>
+&nbsp;<br>
+``uselist``&nbsp;argument&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;whenever&nbsp;the&nbsp;object&nbsp;can&nbsp;relate<br>
+to&nbsp;more&nbsp;than&nbsp;one&nbsp;remote&nbsp;object&nbsp;(many-to-many)&nbsp;and&nbsp;so&nbsp;the&nbsp;ids&nbsp;are&nbsp;stored&nbsp;in<br>
+a&nbsp;MongoDB&nbsp;Array.<br>
+&nbsp;<br>
+Usually&nbsp;a&nbsp;ForeignIdProperty&nbsp;with&nbsp;value&nbsp;``None``&nbsp;means&nbsp;that&nbsp;the&nbsp;object&nbsp;is&nbsp;not<br>
+related&nbsp;to&nbsp;any&nbsp;other&nbsp;entity,&nbsp;in&nbsp;case&nbsp;you&nbsp;have&nbsp;entities&nbsp;that&nbsp;might&nbsp;have&nbsp;``None``<br>
+as&nbsp;their&nbsp;ids&nbsp;you&nbsp;can&nbsp;use&nbsp;``allow_none``&nbsp;option&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;that&nbsp;``None``&nbsp;is<br>
+a&nbsp;valid&nbsp;foreign&nbsp;id.</tt></dd>
+</dl>
+<dl><dt><strong>Course</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>Course_ID</strong></dt>
+<dd><tt>Declares&nbsp;a&nbsp;field&nbsp;to&nbsp;store&nbsp;one&nbsp;or&nbsp;more&nbsp;ObjectIds&nbsp;of&nbsp;a&nbsp;related&nbsp;objects.<br>
+&nbsp;<br>
+The&nbsp;``related``&nbsp;argument&nbsp;must&nbsp;be&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;or&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;(to&nbsp;avoid&nbsp;circular&nbsp;dependencies).&nbsp;The<br>
+field&nbsp;itself&nbsp;will&nbsp;actually&nbsp;store&nbsp;and&nbsp;retrieve&nbsp;:class:`bson.ObjectId`&nbsp;instances.<br>
+&nbsp;<br>
+``uselist``&nbsp;argument&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;whenever&nbsp;the&nbsp;object&nbsp;can&nbsp;relate<br>
+to&nbsp;more&nbsp;than&nbsp;one&nbsp;remote&nbsp;object&nbsp;(many-to-many)&nbsp;and&nbsp;so&nbsp;the&nbsp;ids&nbsp;are&nbsp;stored&nbsp;in<br>
+a&nbsp;MongoDB&nbsp;Array.<br>
+&nbsp;<br>
+Usually&nbsp;a&nbsp;ForeignIdProperty&nbsp;with&nbsp;value&nbsp;``None``&nbsp;means&nbsp;that&nbsp;the&nbsp;object&nbsp;is&nbsp;not<br>
+related&nbsp;to&nbsp;any&nbsp;other&nbsp;entity,&nbsp;in&nbsp;case&nbsp;you&nbsp;have&nbsp;entities&nbsp;that&nbsp;might&nbsp;have&nbsp;``None``<br>
+as&nbsp;their&nbsp;ids&nbsp;you&nbsp;can&nbsp;use&nbsp;``allow_none``&nbsp;option&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;that&nbsp;``None``&nbsp;is<br>
+a&nbsp;valid&nbsp;foreign&nbsp;id.</tt></dd>
+</dl>
+<dl><dt><strong>Parent</strong></dt>
+<dd><tt>Provides&nbsp;a&nbsp;way&nbsp;to&nbsp;access&nbsp;OneToMany,&nbsp;ManyToOne&nbsp;and&nbsp;ManyToMany&nbsp;relations.<br>
+&nbsp;<br>
+The&nbsp;RelationProperty&nbsp;relies&nbsp;on&nbsp;:class:`.ForeignIdProperty`&nbsp;to&nbsp;actually<br>
+understand&nbsp;how&nbsp;the&nbsp;relation&nbsp;is&nbsp;composed&nbsp;and&nbsp;how&nbsp;to&nbsp;retrieve&nbsp;the&nbsp;related&nbsp;data.<br>
+&nbsp;<br>
+Assigning&nbsp;a&nbsp;new&nbsp;value&nbsp;to&nbsp;the&nbsp;relation&nbsp;will&nbsp;properly&nbsp;update&nbsp;the&nbsp;related&nbsp;objects.</tt></dd>
+</dl>
+<dl><dt><strong>Parent_ID</strong></dt>
+<dd><tt>Declares&nbsp;a&nbsp;field&nbsp;to&nbsp;store&nbsp;one&nbsp;or&nbsp;more&nbsp;ObjectIds&nbsp;of&nbsp;a&nbsp;related&nbsp;objects.<br>
+&nbsp;<br>
+The&nbsp;``related``&nbsp;argument&nbsp;must&nbsp;be&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;or&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;related&nbsp;entity&nbsp;class&nbsp;(to&nbsp;avoid&nbsp;circular&nbsp;dependencies).&nbsp;The<br>
+field&nbsp;itself&nbsp;will&nbsp;actually&nbsp;store&nbsp;and&nbsp;retrieve&nbsp;:class:`bson.ObjectId`&nbsp;instances.<br>
+&nbsp;<br>
+``uselist``&nbsp;argument&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;whenever&nbsp;the&nbsp;object&nbsp;can&nbsp;relate<br>
+to&nbsp;more&nbsp;than&nbsp;one&nbsp;remote&nbsp;object&nbsp;(many-to-many)&nbsp;and&nbsp;so&nbsp;the&nbsp;ids&nbsp;are&nbsp;stored&nbsp;in<br>
+a&nbsp;MongoDB&nbsp;Array.<br>
+&nbsp;<br>
+Usually&nbsp;a&nbsp;ForeignIdProperty&nbsp;with&nbsp;value&nbsp;``None``&nbsp;means&nbsp;that&nbsp;the&nbsp;object&nbsp;is&nbsp;not<br>
+related&nbsp;to&nbsp;any&nbsp;other&nbsp;entity,&nbsp;in&nbsp;case&nbsp;you&nbsp;have&nbsp;entities&nbsp;that&nbsp;might&nbsp;have&nbsp;``None``<br>
+as&nbsp;their&nbsp;ids&nbsp;you&nbsp;can&nbsp;use&nbsp;``allow_none``&nbsp;option&nbsp;to&nbsp;tell&nbsp;Ming&nbsp;that&nbsp;``None``&nbsp;is<br>
+a&nbsp;valid&nbsp;foreign&nbsp;id.</tt></dd>
+</dl>
+<dl><dt><strong>ThreadID</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>anon</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>bucket_name</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>bucket_order</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>config</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>content</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>created</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>folders</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>id</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>type</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>uid</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<dl><dt><strong>updated</strong></dt>
+<dd><tt>Declares&nbsp;property&nbsp;for&nbsp;a&nbsp;value&nbsp;stored&nbsp;in&nbsp;a&nbsp;MongoDB&nbsp;Document.<br>
+&nbsp;<br>
+The&nbsp;provided&nbsp;arguments&nbsp;are&nbsp;just&nbsp;forwarded&nbsp;to&nbsp;:class:`.Field`&nbsp;class<br>
+which&nbsp;is&nbsp;actually&nbsp;in&nbsp;charge&nbsp;of&nbsp;managing&nbsp;the&nbsp;value&nbsp;and&nbsp;its&nbsp;validation.<br>
+&nbsp;<br>
+For&nbsp;details&nbsp;on&nbsp;available&nbsp;options&nbsp;in&nbsp;``FieldProperty``&nbsp;just&nbsp;rely&nbsp;on<br>
+:class:`.Field`&nbsp;documentation.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mongometa__</strong> = &lt;class 'ModSocDB.Classes.Piazza.PiazzaContent_Ch...ild.__mongometa__&lt;PiazzaContent_Child_Subchild&gt;'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>:<br>
+<dl><dt><a name="PiazzaContent_Child_Subchild-__contains__"><strong>__contains__</strong></a>(self_, name)</dt></dl>
+
+<dl><dt><a name="PiazzaContent_Child_Subchild-__getitem__"><strong>__getitem__</strong></a>(self_, name)</dt></dl>
+
+<dl><dt><a name="PiazzaContent_Child_Subchild-__repr__"><strong>__repr__</strong></a>(self_)</dt></dl>
+
+<dl><dt><a name="PiazzaContent_Child_Subchild-__setitem__"><strong>__setitem__</strong></a>(self_, name, value)</dt></dl>
+
+<dl><dt><a name="PiazzaContent_Child_Subchild-delete"><strong>delete</strong></a>(self_)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="ming.odm.declarative.html#MappedClass">ming.odm.declarative.MappedClass</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-findAllSubchildren"><strong>findAllSubchildren</strong></a>(DatasetID<font color="#909090">=None</font>)</dt><dd><tt>Find&nbsp;all&nbsp;of&nbsp;the&nbsp;children&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+ <dl><dt><a name="-findChildSubChildByDate"><strong>findChildSubChildByDate</strong></a>(date)</dt></dl>
+</td></tr></table>
+</body></html>
