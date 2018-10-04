@@ -61,7 +61,7 @@ print Dataset
 
 filename = MasterFile.split("/")[-1]
 # user_data = get_data(MasterFile)[filename]
-df = pd.read_csv(MasterFile, sep='\t')
+df = pd.read_csv(MasterFile) # @Ri changing the pd.read_csv to read comma-separated .csv file instead of \t-separated .csv file
 print list(df)
 # print user_data
 # in some type of OS, it doesn't return list and needs to change to become the list
