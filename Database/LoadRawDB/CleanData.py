@@ -33,7 +33,7 @@ import ModSocDB.Classes.Dataset as DatasetMod
 
 
 # a date to cut all the activities after. For removing any logs made after the class finished.
-# cutoff = datetime.datetime.strptime("2016-12-26 23:59:59", "%Y-%m-%d %H:%M:%S")
+cutoff = datetime.datetime.strptime("2018-12-26 23:59:59", "%Y-%m-%d %H:%M:%S") # @Ri changed the cutoff time to match our data
 
 #------------------------------------------------
 #Main Arguments.
