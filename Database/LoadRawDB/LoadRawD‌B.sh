@@ -30,7 +30,7 @@ DescFile="$RawDataDir/Dataset/Dataset.desc"
 echo "----------------------------------------------"
 echo "Loading Dataset Description"
 
-python LoadDescriptionFile.py $DescFile  || exit 0
+python2 LoadDescriptionFile.py $DescFile  || exit 0
 
 
 # ------------------------------------------------------
@@ -73,14 +73,14 @@ mongoimport --db $DBName \
 
 
 # And drop the duplicates.
-python DropDuplicates.py "$dataset_name" || exit 1
+python2 DropDuplicates.py "$dataset_name" || exit 1
 
 
 # ------------------------------------------------------
 # Migrate Content from raw form.
 # ------------------------------------------------------
 echo "Migrating Raw Content."
-python MigrateRawContent.py "$dataset_name" "$RawDataDir" || exit 1
+python2 MigrateRawContent.py "$dataset_name" "$RawDataDir" || exit 1
 
-python CleanData.py "$dataset_name" "$RawDataDir/users_data.csv" || exit 1
+python2 CleanData.py "$dataset_name" "$RawDataDir/users_data.csv" || exit 1
 
