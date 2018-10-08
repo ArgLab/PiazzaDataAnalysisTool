@@ -739,7 +739,7 @@ def parseDateFormat(DateStr):
     if (DateStr == None): return None
     else: return datetime.datetime.strptime(
         DateStr,
-        "%Y-%m-%dT%H:%M:%SZ")
+        "%Y-%m-%dT%H:%M:%S.%fZ")
 
 # -------------------------------------------------
 # Query Functions.
