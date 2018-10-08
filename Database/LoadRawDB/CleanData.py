@@ -33,7 +33,7 @@ import ModSocDB.Classes.Dataset as DatasetMod
 
 
 # a date to cut all the activities after. For removing any logs made after the class finished.
-# cutoff = datetime.datetime.strptime("2016-12-26 23:59:59", "%Y-%m-%d %H:%M:%S")
+cutoff = datetime.datetime.strptime("2018-12-26 23:59:59", "%Y-%m-%d %H:%M:%S") # @Ri changed the cutoff time to match our data
 
 #------------------------------------------------
 #Main Arguments.
@@ -61,7 +61,7 @@ print Dataset
 
 filename = MasterFile.split("/")[-1]
 # user_data = get_data(MasterFile)[filename]
-df = pd.read_csv(MasterFile, sep='\t')
+df = pd.read_csv(MasterFile) # @Ri changing the pd.read_csv to read comma-separated .csv file instead of \t-separated .csv file
 print list(df)
 # print user_data
 # in some type of OS, it doesn't return list and needs to change to become the list
