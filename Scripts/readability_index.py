@@ -1,4 +1,7 @@
-''' Reference: https://www.geeksforgeeks.org/readability-index-pythonnlp/ '''
+'''
+    Reference: https://www.geeksforgeeks.org/readability-index-pythonnlp/
+    Caution: this file is using python3.6!!!
+'''
 import spacy
 from textstat.textstat import textstatistics, easy_word_set, legacy_round
 
@@ -161,6 +164,19 @@ def dale_chall_readability_score(text):
     return legacy_round(raw_score, 2)
 
 if __name__ == "__main__":
-    print (dale_chall_readability_score("In Natural Language Processing, sometimes it is required to analyse words and sentences to determine the difficulty of the text."))
-    print(dale_chall_readability_score(
-        "I love cloud computing."))
+
+    my_sentences = []
+    my_sentences.append("No, you cannot. I agree it could make code cleaner, but it is hard for us to grade your code since our submitter will not get your template. We may think out this way in the next semester.")
+    my_sentences.append("You may want to use cost explorer. Bills may be a little bit delay.")
+    my_sentences.append("Nginx daemonizing on startup by default would cause this issue, you can look for an option to turn this off. Switching off the default daemonizing behavior should work.")
+    my_sentences.append("In short, a pod is a group of containers. A pod let their constituents, containers, share the data and communication. It's good practice to add modularity to application or service. It means it's very likely a group of containers will work together. They're not necessarily the same. But, they can share resources and communicate with each other.")
+    my_sentences.append("Hi, the recording system encountered some errors today. But, I made another record after today's recitation. It should be able to release soon. Thanks for asking!")
+    my_sentences.append("That's right. You see there were some unexpected cost in the Ohio. You can even see if it's tagged etc.")
+    my_sentences.append("You should have both stdout and stderr. The feedback is not suggesting that the error is caused by exactly the line before.")
+    my_sentences.append("Your output somehow changed to bytes literals. The usage of Popen() here may not be the problem.")
+    my_sentences.append("It's good practice to tag all the resources. But, it's not required.")
+    my_sentences.append("However, our project's goal is helping you improve you self-learning skills and ability to solve problems on your own. Hope you enjoy the process of tackling the issues!")
+    my_sentences.append("Because the frontend in the GCP can access the backend in GCP with internal DNS. But, it cannot access Azure's backend with the same approach. So, you would like to start the Azure backend first and note down the ip.")
+    my_sentences.append("We feel very sorry about this case. Because the spot instance tags used to be able to persist if added manually. Spot fleet can help automatically tag the spot instances.")
+    for sentence in my_sentences:
+        print(dale_chall_readability_score(sentence))
