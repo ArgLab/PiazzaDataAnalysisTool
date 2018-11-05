@@ -203,6 +203,18 @@ class PiazzaContent(MappedClass):
         Hist = self.getEarliestHistory()
         return Hist.Author
 
+    def getLatestHistory(self):
+        if len(self.History) < 1:
+            # print 'hereeee', self.subject
+            return None
+        Last = self.History[0]
+
+        # print 'some history found', len(self.History)
+        for Hist in self.History[1:]:
+            if ((Hist.created > Last.created) and Hist.subject and Hist.content):
+                Last = Hist
+
+        return Last
 
     def getAuthors(self):
         """
