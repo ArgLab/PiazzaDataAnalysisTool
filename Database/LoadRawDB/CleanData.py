@@ -93,7 +93,11 @@ Content = PiazzaMod.PiazzaContent.findAllContent()
 for c in Content:
     if not c.CentralAuthor:
         # Add the unknown user for users with no Author (anonymous posts)
-        c.CentralAuthor = unknown_user 
+        if c.CentralAuthor_ID and len(User.query.find({'_id': c.CentralAuthor_ID}).all())>0:
+                u = User.query.find({'_id': c.CentralAuthor_ID}).all()[0]
+                c.CentralAuthor = u
+        else:    
+            c.CentralAuthor = unknown_user 
     if (c.CentralAuthor != None and c.CentralAuthor.username not in masterUserDataDict):
     # if c.created > cutoff or (c.CentralAuthor != None and c.CentralAuthor.username not in masterUserDataDict):
         for cl in c.ChangeLog:
@@ -170,7 +174,12 @@ for child in children :
         if child.anon == 'no' or child.created > cutoff:
             child.delete()
         else:
-            child.CentralAuthor = unknown_user
+            if child.CentralAuthor_ID and len(User.query.find({'_id': child.CentralAuthor_ID}).all())>0:
+                u = User.query.find({'_id': child.CentralAuthor_ID}).all()[0]
+                child.CentralAuthor = u
+            else:    
+                # c.CentralAuthor = unknown_user 
+                child.CentralAuthor = unknown_user
             # writer.writerow(['',child.id,child.created,child.anon])
 ModSocDB.Session.flush()
 
@@ -186,7 +195,13 @@ for subchild in subchildren :
         if subchild.anon == 'no' or subchild.created > cutoff:
             subchild.delete()
         else:
-            subchild.CentralAuthor = unknown_user
+            if subchild.CentralAuthor_ID and len(User.query.find({'_id': subchild.CentralAuthor_ID}).all())>0:
+                u = User.query.find({'_id': subchild.CentralAuthor_ID}).all()[0]
+                subchild.CentralAuthor = u
+        else:    
+            subchild.CentralAuthor = unknown_user 
+
+            # subchild.CentralAuthor = unknown_user
             # writer.writerow(['',subchild.id,subchild.created,subchild.anon])
 ModSocDB.Session.flush()
 
