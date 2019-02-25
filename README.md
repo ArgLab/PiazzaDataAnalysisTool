@@ -21,7 +21,8 @@ For the loading code to work, you need the following folder structure in your Ra
 Class Folder
 
 |___Dataset
-       |_____Dataset.desc: The first line includes the short name for the dataset to use in the database. The second line is a long descriptive name and after the third line is more information on the class.
+
+___________|_____Dataset.desc: The first line includes the short name for the dataset to use in the database. The second line is a long descriptive name and after the third line is more information on the class.
 
 |___PiazzaData: The following json files come from Piazza
 
