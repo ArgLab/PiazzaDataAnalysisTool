@@ -19,11 +19,14 @@ Loading code is stored in "Database/LoadRawDB/LoadRawDB.sh" and the anonymizatio
 For the loading code to work, you need the following folder structure in your Raw Database folder and then pass that folder's location to the loading script.
 
 Class Folder
+
 |___Dataset
        |_____Dataset.desc: The first line includes the short name for the dataset to use in the database. The second line is a long descriptive name and after the third line is more information on the class.
+
 |___PiazzaData: The following json files come from Piazza
        |_____class_content.json
        |_____users.json
+
 |___users_info.csv: including columns called first name, last name, username, and anonID which can be an ID or a number (can be row number) for each student, the number will be used to replace students' identifiable information while anonymization.
 
 
