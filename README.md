@@ -12,6 +12,21 @@ This code will be run as a database-backed analysis project.  Thus there will be
 For the sake of code sharing most of the code that touches the database should be done with Bash, Python, PyMongo, and Ming the Merciless unless another ORM is preferred.  Database initialization will be accomplished via shell scripts and a separate script will be built for database loading. 
 
 
+How It Works
+================================================
+Loading code is stored in "Database/LoadRawDB/LoadRawDB.sh" and the anonymization code is stored in "Database/AnonymizeDB.sh". After the data loading and anonymization, the Transaction Conversion code in ModSocDB/Classes/Piazza folder. It will give you a csv file with all the posts and replies, their authors, and more information on those posts. Using this script you can make sure your data is loaded properly. More information on how to run the scripts and which arguments to pass on is provided in the README file of Database folder.
+
+For the loading code to work, you need the following folder structure in your Raw Database folder and then pass that folder's location to the loading script.
+
+Class Folder
+|___Dataset
+       |_____Dataset.desc: The first line includes the short name for the dataset to use in the database. The second line is a long descriptive name and after the third line is more information on the class.
+|___PiazzaData: The following json files come from Piazza
+       |_____class_content.json
+       |_____users.json
+|___users_info.csv: including columns called first name, last name, username, and anonID which can be an ID or a number (can be row number) for each student, the number will be used to replace students' identifiable information while anonymization.
+
+
 Requirements
 ================================================
 This library depends upon the following packages:
