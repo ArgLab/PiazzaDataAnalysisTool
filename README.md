@@ -1,3 +1,5 @@
+# This file is covered by the LICENSE file in the root of this project.
+# @license <https://github.com/ArgLab/PiazzaDataAnalysisTool/LICENSE>
 README.txt
 Collin Lynch
 9/21/2014

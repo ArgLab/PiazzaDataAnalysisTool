@@ -1,3 +1,5 @@
+# This file is covered by the LICENSE file in the root of this project.
+# @license <https://github.com/ArgLab/PiazzaDataAnalysisTool/LICENSE>
 '''
     Reference: https://www.geeksforgeeks.org/readability-index-pythonnlp/
     Caution: this file is using python3.6!!!
